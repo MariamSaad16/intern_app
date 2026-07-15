@@ -27,7 +27,7 @@ class CustomBtn extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(40),
         ),
         child: Center(
           child: isLoading

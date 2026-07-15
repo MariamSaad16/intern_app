@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intern_app/core/constant.dart';
 import 'package:intern_app/features/login/views/welcome_page.dart';
@@ -22,7 +23,9 @@ class _SigninState extends State<Signin> {
       body: Column(
         children: [
           CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Login to Wikala")),
+          SizedBox(height: 15,),
           CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
+          SizedBox(height: 15,),
           CustomTextfield(label: "Password *",isPassword: true,hintText: "Password", 
             validator: (value) {
           if (value == null || value.trim().isEmpty) {
@@ -33,12 +36,14 @@ class _SigninState extends State<Signin> {
           }
           return null; // fix missing return value warning
         },),
-           
+           SizedBox(height: 15,),
            
            Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go('/confirm1');
+                    },
                     child: Text(
                       "Forget Password?",
                       style: GoogleFonts.roboto(
@@ -50,8 +55,14 @@ class _SigninState extends State<Signin> {
                     ),
                   ),
                 ),
-          CustomBtn(color: kprimarycolor,title: "Login",),
-          Line("Don’t have an account?", " |Sign up"),
+                SizedBox(height: 15,),
+          CustomBtn(color: kprimarycolor,title: "Login",width: 340,height: 45,onTap: (){
+            context.go('/login');
+          },),
+          SizedBox(height: 15,),
+          Line("Don’t have an account?", " |Sign up",onPressed: (){
+            context.go('/signup');
+          },),
         ],
       ),
     );

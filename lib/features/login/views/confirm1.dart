@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intern_app/core/constant.dart';
 import 'package:intern_app/features/login/widgets/custom_header.dart';
 import 'package:intern_app/features/login/widgets/custom_phonefeild.dart';
@@ -19,8 +20,12 @@ class _Confirm1State extends State<Confirm1> {
       body: Column(
         children: [
           CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Enter your Number")),
+          SizedBox(height: 15,),
           CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
-          CustomBtn(color: kprimarycolor,title: "Submit",)
+          SizedBox(height: 15,),
+          CustomBtn(color: kprimarycolor,title: "Submit",width: 340,height: 45,onTap: (){
+            context.go('/confirm2');
+          },)
         ],
       ),
     );

@@ -79,7 +79,9 @@ class _Confirm2State extends State<Confirm2> {
           ),
       
         ],),
-          CustomBtn(color: kprimarycolor,title: "Confirm", onTap: (){String otp =
+        SizedBox(height: 15,),
+          CustomBtn(color: kprimarycolor,title: "Confirm",width: 340,height: 45,
+           onTap: (){String otp =
         c1.text +
         c2.text +
         c3.text +
@@ -98,7 +100,7 @@ class _Confirm2State extends State<Confirm2> {
       
           OTPTimer(onResend: () {},),
       
-          Line("Not received?", " Send Again")
+          
         ],
       ),
     );

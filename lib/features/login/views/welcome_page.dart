@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intern_app/core/constant.dart';
 import 'package:intern_app/features/login/widgets/custom_header.dart';
-import 'package:intern_app/features/login/widgets/custom_textfeild.dart';
+import 'package:intern_app/features/login/widgets/custom_social_login.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -31,20 +31,29 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
         
-            CustomTextfield(
-              icon: const Icon(Icons.phone),
-              hintText: "Sign in with Phone Number",
-            ),
+            SocialLoginButton(
+  icon: const Icon(Icons.phone),
+  text: "Sign in with Phone Number",
+  onPressed: () {
+      context.go('/signup');
+  },
+),
             SizedBox(height: 15,),
-            CustomTextfield(
-              icon: const FaIcon(FontAwesomeIcons.google),
-              hintText: "Sign in with Google",
-            ),
+            SocialLoginButton(
+  icon: const FaIcon(FontAwesomeIcons.google),
+  text: "Sign in with Google",
+  onPressed: () {},
+),
             SizedBox(height: 15,),
-            CustomTextfield(
-              icon: const FaIcon(FontAwesomeIcons.facebook),
-              hintText: "Sign in with Facebook",
-            ),
+            SocialLoginButton(
+  icon: const FaIcon(FontAwesomeIcons.facebook),
+  text: "Sign in with Facebook",
+  backgroundColor: const Color(0xFF235C95),
+  borderColor: const Color(0xFF235C95),
+  textColor: Colors.white,
+  iconColor: Colors.white,
+  onPressed: () {},
+),
             SizedBox(height: 15,),
             Line("Already member?", "Sign In"),
             SizedBox(height: 15,),
@@ -59,7 +68,9 @@ class _WelcomePageState extends State<WelcomePage> {
 class Line extends StatelessWidget {
   final String text1;
   final String text2;
-  const Line(this.text1, this.text2);
+  final VoidCallback? onPressed;
+
+  const Line(this.text1, this.text2, {this.onPressed} );
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +92,8 @@ class Line extends StatelessWidget {
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          onPressed: () {
-            context.go('/login');
-          },
+          
+           onPressed: onPressed,
           child: Text(
             text2,
             style: GoogleFonts.roboto(

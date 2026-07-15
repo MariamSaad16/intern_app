@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:intern_app/core/constant.dart';
 
 class OTPTimer extends StatefulWidget {
 
@@ -74,6 +76,10 @@ class _OTPTimerState extends State<OTPTimer> {
           "$remainingTime",
           style: const TextStyle(
             fontSize: 28,
+              fontWeight: FontWeight.w500,
+            
+            height: 1.5,
+           
           ),
         ),
 
@@ -84,10 +90,15 @@ class _OTPTimerState extends State<OTPTimer> {
           children: [
 
             const Text(
-              "Didn't receive?",
+              "Not received?",
             ),
 
             TextButton(
+              style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+            minimumSize: Size.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
 
               onPressed: remainingTime == 0
                   ? () {
@@ -96,7 +107,12 @@ class _OTPTimerState extends State<OTPTimer> {
                     }
                   : null,
 
-              child: const Text("Resend Again"),
+              child: Text("Send Again",style: GoogleFonts.roboto(
+              fontWeight: FontWeight.w500,
+              fontSize: 16,
+              height: 1.5,
+              color: kprimarycolor,
+            ),),
             ),
 
           ],
