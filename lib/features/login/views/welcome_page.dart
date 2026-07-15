@@ -19,44 +19,48 @@ class _WelcomePageState extends State<WelcomePage> {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          
           children: [
             CustomHeader(
-              
               icon: const Icon(Icons.close, color: Colors.black, size: 24),
-              
+
               text: Text(
                 "Welcome to Our app",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
               ),
             ),
-        
+
             SocialLoginButton(
-  icon: const Icon(Icons.phone),
-  text: "Sign in with Phone Number",
-  onPressed: () {
-      context.go('/signup');
-  },
-),
-            SizedBox(height: 15,),
+              icon: const Icon(Icons.phone),
+              text: "Sign in with Phone Number",
+              onPressed: () {
+                context.go('/signup');
+              },
+            ),
+            SizedBox(height: 15),
             SocialLoginButton(
-  icon: const FaIcon(FontAwesomeIcons.google),
-  text: "Sign in with Google",
-  onPressed: () {},
-),
-            SizedBox(height: 15,),
+              icon: const FaIcon(FontAwesomeIcons.google),
+              text: "Sign in with Google",
+              onPressed: () {},
+            ),
+            SizedBox(height: 15),
             SocialLoginButton(
-  icon: const FaIcon(FontAwesomeIcons.facebook),
-  text: "Sign in with Facebook",
-  backgroundColor: const Color(0xFF235C95),
-  borderColor: const Color(0xFF235C95),
-  textColor: Colors.white,
-  iconColor: Colors.white,
-  onPressed: () {},
-),
-            SizedBox(height: 15,),
-            Line("Already member?", "Sign In"),
-            SizedBox(height: 15,),
+              icon: const FaIcon(FontAwesomeIcons.facebook),
+              text: "Sign in with Facebook",
+              backgroundColor: const Color(0xFF235C95),
+              borderColor: const Color(0xFF235C95),
+              textColor: Colors.white,
+              iconColor: Colors.white,
+              onPressed: () {},
+            ),
+            SizedBox(height: 15),
+            Line(
+              "Already member?",
+              "Sign In",
+              onPressed: () {
+                context.go('/login');
+              },
+            ),
+            SizedBox(height: 15),
             _SignUpFooter(),
           ],
         ),
@@ -70,7 +74,7 @@ class Line extends StatelessWidget {
   final String text2;
   final VoidCallback? onPressed;
 
-  const Line(this.text1, this.text2, {this.onPressed} );
+  const Line(this.text1, this.text2, {this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +96,8 @@ class Line extends StatelessWidget {
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
-          
-           onPressed: onPressed,
+
+          onPressed: onPressed,
           child: Text(
             text2,
             style: GoogleFonts.roboto(
