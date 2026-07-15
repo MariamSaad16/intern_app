@@ -42,10 +42,11 @@ class photo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        SizedBox(height: 10,),
         Image.asset('images/onboarding.png'),
-        Spacer(),
+         SizedBox(height: 30),
         text1,
-        Spacer(),
+         SizedBox(height: 15),
         text2,
       ],
     );

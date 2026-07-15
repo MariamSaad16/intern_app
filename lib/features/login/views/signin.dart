@@ -18,40 +18,42 @@ class _SigninState extends State<Signin> {
   final phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Login to Wikala")),
-        CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
-        CustomTextfield(label: "Password *",isPassword: true,hintText: "Password", 
-          validator: (value) {
-        if (value == null || value.trim().isEmpty) {
-          return "Password is required";
-        }
-        if (value.length < 8) {
-          return "Password should be more than 8 letters";
-        }
-        return null; // fix missing return value warning
-      },),
-         
-         
-         Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Forget Password?",
-                    style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      height:1.4,
-                      color: kprimarycolor,
+    return Scaffold(
+      body: Column(
+        children: [
+          CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Login to Wikala")),
+          CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
+          CustomTextfield(label: "Password *",isPassword: true,hintText: "Password", 
+            validator: (value) {
+          if (value == null || value.trim().isEmpty) {
+            return "Password is required";
+          }
+          if (value.length < 8) {
+            return "Password should be more than 8 letters";
+          }
+          return null; // fix missing return value warning
+        },),
+           
+           
+           Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Forget Password?",
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        height:1.4,
+                        color: kprimarycolor,
+                      ),
                     ),
                   ),
                 ),
-              ),
-        CustomBtn(color: kprimarycolor,title: "Login",),
-        Line("Don’t have an account?", " |Sign up"),
-      ],
+          CustomBtn(color: kprimarycolor,title: "Login",),
+          Line("Don’t have an account?", " |Sign up"),
+        ],
+      ),
     );
   }
 }

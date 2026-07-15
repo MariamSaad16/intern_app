@@ -15,12 +15,14 @@ class _Confirm1State extends State<Confirm1> {
     final phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Enter your Number")),
-        CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
-        CustomBtn(color: kprimarycolor,title: "Submit",)
-      ],
+    return Scaffold(
+      body: Column(
+        children: [
+          CustomHeader(icon: Icon(Icons.arrow_back_ios_new), text: Text("Enter your Number")),
+          CustomPhoneTextField(controller: phoneController, label: "Phone Number *"),
+          CustomBtn(color: kprimarycolor,title: "Submit",)
+        ],
+      ),
     );
   }
 }

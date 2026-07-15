@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intern_app/core/constant.dart';
 import 'package:intern_app/features/onboarding/widgets/custom_button.dart';
 import 'package:intern_app/features/onboarding/widgets/custom_page.dart';
 
@@ -13,20 +14,28 @@ class OnBoarding1 extends StatefulWidget {
 class _OnBoarding1State extends State<OnBoarding1> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          skipButton(
-            onTap: () {
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+              SizedBox(height: 10,),
+            skipButton(
+              onTap: () {
+                context.go('/onboarding2');
+              },
+            ),
+            SizedBox(height: 15,),
+            photo(
+              
+              text1: Text("E Shopping",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
+              text2: Text("Explore  top organic fruits & grab them"),
+            ),
+            SizedBox(height: 110,),
+            CustomBtn(title: "Next",color: kprimarycolor,width: 190,height: 45,onTap: (){
               context.go('/onboarding2');
-            },
-          ),
-          photo(
-            text1: Text("E Shopping"),
-            text2: Text("Explore  top organic fruits & grab them"),
-          ),
-          CustomBtn(title: "Next"),
-        ],
+            },),
+          ],
+        ),
       ),
     );
   }
@@ -42,20 +51,27 @@ class OnBoarding2 extends StatefulWidget {
 class _OnBoarding2State extends State<OnBoarding2> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          skipButton(  onTap: () {
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            SizedBox(height: 10,),
+            skipButton(  onTap: () {
+                context.go('/onboarding3');
+              },
+            
+      ),
+       SizedBox(height: 15,),
+            photo(
+              text1: Text("Delivery Arrived",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
+              text2: Text("Order is arrived at your Place"),
+            ),
+            SizedBox(height: 110,),
+            CustomBtn(title: "Next",color: kprimarycolor,width: 190,height: 45,onTap: (){
               context.go('/onboarding3');
-            },
-          
-    ),
-          photo(
-            text1: Text("Delivery Arrived"),
-            text2: Text("Order is arrived at your Place"),
-          ),
-          CustomBtn(title: "Next"),
-        ],
+            }),
+          ],
+        ),
       ),
     );
   }
@@ -71,18 +87,25 @@ class OnBoarding3 extends StatefulWidget {
 class _OnBoarding3State extends State<OnBoarding3> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          skipButton(onTap: () {
-              context.go('/welcome');
-            },),
-          photo(
-            text1: Text("Delivery Arrived"),
-            text2: Text("Order is arrived at your Place"),
-          ),
-          CustomBtn(title: "Get Started"),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+             SizedBox(height: 10,),
+            skipButton(onTap: () {
+                context.go('/welcome');
+              },),
+               SizedBox(height: 15,),
+            photo(
+              text1: Text("Delivery Arrived",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
+              text2: Text("Order is arrived at your Place"),
+            ),
+              SizedBox(height: 110,),
+            CustomBtn(title: "Get Started",color: kprimarycolor,width: 190,height: 45,onTap: (){
+               context.go('/welcome');
+            }),
+          ],
+        ),
       ),
     );
   }

@@ -16,31 +16,42 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomHeader(
-          icon: const Icon(Icons.close, color: Colors.black, size: 24),
-          text: Text(
-            "Welcome to Our app",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          
+          children: [
+            CustomHeader(
+              
+              icon: const Icon(Icons.close, color: Colors.black, size: 24),
+              
+              text: Text(
+                "Welcome to Our app",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+            ),
+        
+            CustomTextfield(
+              icon: const Icon(Icons.phone),
+              hintText: "Sign in with Phone Number",
+            ),
+            SizedBox(height: 15,),
+            CustomTextfield(
+              icon: const FaIcon(FontAwesomeIcons.google),
+              hintText: "Sign in with Google",
+            ),
+            SizedBox(height: 15,),
+            CustomTextfield(
+              icon: const FaIcon(FontAwesomeIcons.facebook),
+              hintText: "Sign in with Facebook",
+            ),
+            SizedBox(height: 15,),
+            Line("Already member?", "Sign In"),
+            SizedBox(height: 15,),
+            _SignUpFooter(),
+          ],
         ),
-
-        CustomTextfield(
-          icon: const Icon(Icons.phone),
-          hintText: "Sign in with Phone Number",
-        ),
-        CustomTextfield(
-          icon: const FaIcon(FontAwesomeIcons.google),
-          hintText: "Sign in with Google",
-        ),
-        CustomTextfield(
-          icon: const FaIcon(FontAwesomeIcons.facebook),
-          hintText: "Sign in with Facebook",
-        ),
-        Line("Already member?", "Sign In"),
-        _SignUpFooter(),
-      ],
+      ),
     );
   }
 }

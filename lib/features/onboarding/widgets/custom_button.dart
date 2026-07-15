@@ -4,7 +4,7 @@ import 'package:intern_app/core/constant.dart';
 class CustomBtn extends StatelessWidget {
   final String title;
   final Color? color;
-  final double height;
+  final double ?height;
   final double? width;
   final void Function()? onTap;
   final bool isLoading;
@@ -13,7 +13,7 @@ class CustomBtn extends StatelessWidget {
     this.title = "",
     this.onTap,
     this.color,
-    this.height = 56,
+    this.height ,
     this.isLoading = false, 
     this.width,
   });
@@ -24,7 +24,7 @@ class CustomBtn extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: height,
-        width: double.infinity,
+        width: width,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(15),
